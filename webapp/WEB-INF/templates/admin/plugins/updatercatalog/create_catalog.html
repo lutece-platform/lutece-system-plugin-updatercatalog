@@ -1,0 +1,33 @@
+<div class="content-box">
+    <h2>#i18n{updatercatalog.create_catalog.title}</h2>
+    <form action="jsp/admin/plugins/updatercatalog/DoCreateCatalog.jsp" method="POST">
+        <p>
+            <label for="name">#i18n{updatercatalog.create_catalog.labelName}* :</label>
+            <input name="name" id="name" tabindex="1" value="" maxlength="100" type="text">
+        </p>
+        <p>
+            <label for="description">#i18n{updatercatalog.create_catalog.labelDescription}* :</label>
+            <input name="description" id="description" tabindex="2" value="" size="60" type="text" maxlength="255" />
+            
+        </p>
+        <p>
+            <label for="locale">#i18n{updatercatalog.create_catalog.labelLocale}* :</label>
+            <input name="locale" id="locale" tabindex="3" value="" size="2" type="text" maxlength="2" />
+            
+        </p>
+        <p>
+            <label for="output_filename">#i18n{updatercatalog.create_catalog.labelOutputFilename}* :</label>
+            <input name="output_filename" id="output_filename" tabindex="4" value="" size="60" type="text"  maxlength="255" />
+            
+        </p>
+        <p>
+            <label for="url_repository">#i18n{updatercatalog.create_catalog.labelUrlRepository}* :</label>
+            <input name="url_repository" id="url_repository" tabindex="5" value="" size="60" type="text"  maxlength="255" />
+            
+        </p>
+        <p>
+            <input value="#i18n{updatercatalog.create_catalog.buttonCreate}" class="button" type="submit" />
+        </p>
+    </form>
+    
+</div>

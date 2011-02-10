@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<plug-in>
+
+   <!-- Plugin Informations -->
+   <name>updatercatalog</name>
+   <class>fr.paris.lutece.portal.service.plugin.PluginDefaultImplementation</class>
+   <version>1.0.0</version>
+   <description>updatercatalog.plugin.description</description>
+   <documentation></documentation>
+   <installation></installation>
+   <changes></changes>
+   <user-guide></user-guide>
+   <provider>updatercatalog.plugin.provider</provider>
+   <provider-url>http://lutece.paris.fr</provider-url>
+   <icon-url>images/admin/skin/plugins/updatercatalog/updatercatalog.png</icon-url>
+   <copyright>Copyright (c) 2001-2008 Mairie de Paris</copyright>
+   <db-pool-required>1</db-pool-required>
+
+   <!-- Administration interface parameters -->
+   <admin-features>
+     <admin-feature>
+       <feature-id>UPDATER_CATALOG_MANAGEMENT</feature-id>
+       <feature-title>updatercatalog.adminFeature.catalog_management.name</feature-title>
+       <feature-description>updatercatalog.adminFeature.catalog_management.description</feature-description>
+       <feature-level>0</feature-level>
+       <feature-url>jsp/admin/plugins/updatercatalog/ManageCatalogs.jsp</feature-url>
+     </admin-feature>
+   </admin-features>
+
+</plug-in>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+  <bean id="updatercatalog.catalogDAO"  class="fr.paris.lutece.plugins.updatercatalog.business.CatalogDAO" />
+  <bean id="updatercatalog.catalogPluginDAO"  class="fr.paris.lutece.plugins.updatercatalog.business.CatalogPluginDAO" />
+  <bean id="updatercatalog.pluginReleaseDAO"  class="fr.paris.lutece.plugins.updatercatalog.business.PluginReleaseDAO" />
+</beans>

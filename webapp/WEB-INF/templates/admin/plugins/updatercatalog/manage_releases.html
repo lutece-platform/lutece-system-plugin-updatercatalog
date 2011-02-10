@@ -1,0 +1,56 @@
+<div id="left">
+    <div class="content-box">
+        <ul>
+            <li>
+                <img src="images/admin/skin/plugins/updatercatalog/catalog.png" />
+                <a href="jsp/admin/plugins/updatercatalog/ManageCatalogs.jsp">#i18n{updatercatalog.pageTitle.manageCatalogs}</a>
+            </li>
+            <li>
+                <img src="images/admin/skin/plugins/updatercatalog/plugin.png" />
+                <a href="jsp/admin/plugins/updatercatalog/ManagePlugins.jsp">#i18n{updatercatalog.pageTitle.managePlugins}</a>
+            </li>
+            <li>
+                <img src="images/admin/skin/plugins/updatercatalog/release.png" />
+                <strong>#i18n{updatercatalog.pageTitle.manageReleases}</strong>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="right">
+    <div class="content-box">
+        <table>
+            <tr>
+                <th>#i18n{updatercatalog.manage_releases.labelName}</th>
+                <th>#i18n{updatercatalog.manage_releases.labelVersion}</th>
+                <th>#i18n{updatercatalog.manage_releases.labelPackage}</th>
+                <th>#i18n{updatercatalog.manage_releases.labelMinCoreVersion}</th>
+                <th>#i18n{updatercatalog.manage_releases.labelMaxCoreVersion}</th>
+                <th>Actions</th>
+            </tr>
+            <#list plugins_list as plugin>
+            <tr>
+                <td>${plugin.pluginName}</td>
+                <td>${plugin.pluginVersion}</td>
+                <td>${plugin.urlDownload}</td>
+                <td>${plugin.coreVersionMin}</td>
+                <td><#if plugin.coreVersionMax??>${plugin.coreVersionMax}<#else>#i18n{updatercatalog.manage_releases.labelNotDefined}</#if></td>
+                <td>
+                    <a href="jsp/admin/plugins/updatercatalog/ModifyPluginRelease.jsp?id_release=${plugin.id}">
+                        <img src="images/admin/skin/plugins/updatercatalog/actions/edit.png" alt="#i18n{updatercatalog.manage_releases.actionModify}" title="#i18n{updatercatalog.manage_releases.actionModify}" />
+                    </a>
+                    <a href="jsp/admin/plugins/updatercatalog/DeletePluginRelease.jsp?id_release=${plugin.id}">
+                        <img src="images/admin/skin/actions/delete.png" alt="#i18n{updatercatalog.manage_releases.actionDelete}" title="#i18n{updatercatalog.manage_releases.actionDelete}" />
+                    </a>
+                </td>
+            </tr>
+            </#list>
+        </table>
+        <form action="jsp/admin/plugins/updatercatalog/CreatePluginRelease.jsp">
+            <p>
+                <input value="#i18n{updatercatalog.manage_releases.buttonCreate}" class="button" type="submit" />
+            </p>
+        </form>
+
+    </div>
+</div>

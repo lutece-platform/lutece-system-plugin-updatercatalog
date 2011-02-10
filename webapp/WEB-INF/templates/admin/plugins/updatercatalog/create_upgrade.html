@@ -1,0 +1,33 @@
+<div class="content-box">
+    <h2>#i18n{updatercatalog.create_upgrade.title}</h2>
+    <form action="jsp/admin/plugins/updatercatalog/DoCreateUpgrade.jsp" method="POST">
+        <input type="hidden" name="id_release" value="${release_id}" />
+        <p>
+            <label for="version">#i18n{updatercatalog.create_upgrade.labelVersionFrom}* :</label>
+            <input name="version" id="version" tabindex="2" value="" size="20" type="text" maxlength="255" />
+
+        </p>
+        <p>
+            <label for="critical">#i18n{updatercatalog.create_upgrade.labelCritical}* :</label>
+            <input name="critical" id="critical" tabindex="2" value="0" type="radio" checked >
+                <img src="images/admin/skin/plugins/updatercatalog/upgrade0.png"  />
+                #i18n{updatercatalog.label.upgradeLevel0}
+            </input>
+            <input name="critical" id="critical" tabindex="3" value="1" type="radio" >
+                <img src="images/admin/skin/plugins/updatercatalog/upgrade1.png" />
+                #i18n{updatercatalog.label.upgradeLevel1}
+            </input>
+
+        </p>
+        <p>
+            <label for="url_download">#i18n{updatercatalog.create_upgrade.labelPackage}* :</label>
+            <input name="url_download" id="url_download" tabindex="4" value="" size="60" type="text" maxlength="255" />
+
+        </p>
+        <p>
+            <input value="#i18n{updatercatalog.create_upgrade.buttonCreate}" class="button" type="submit" />
+		    <input class="button" onclick="javascript:history.go(-1)" value="#i18n{portal.util.labelCancel}" type="button">
+        </p>
+    </form>
+
+</div>

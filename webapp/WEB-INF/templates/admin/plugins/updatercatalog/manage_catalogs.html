@@ -1,0 +1,66 @@
+<div id="left">
+    <div class="content-box">
+        <ul>
+            <li>
+                <img src="images/admin/skin/plugins/updatercatalog/catalog.png" />
+                <strong>#i18n{updatercatalog.pageTitle.manageCatalogs}</strong>
+            </li>
+            <li>
+                <img src="images/admin/skin/plugins/updatercatalog/plugin.png" />
+                <a href="jsp/admin/plugins/updatercatalog/ManagePlugins.jsp">#i18n{updatercatalog.pageTitle.managePlugins}</a>
+            </li>
+            <li>
+                <img src="images/admin/skin/plugins/updatercatalog/release.png" />
+                <a href="jsp/admin/plugins/updatercatalog/ManagePluginsReleases.jsp">#i18n{updatercatalog.pageTitle.manageReleases}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="right">
+    <div class="content-box">
+
+        <table>
+            <tr>
+                <th>#i18n{updatercatalog.manage_catalogs.labelName}</th>
+                <th>#i18n{updatercatalog.manage_catalogs.labelDescription}</th>
+                <th>#i18n{updatercatalog.manage_catalogs.labelLocale}</th>
+                <th>#i18n{updatercatalog.manage_catalogs.labelOutputFilename}</th>
+                <th>#i18n{updatercatalog.manage_catalogs.labelUrlRepository}</th>
+                <th width="20%">#i18n{updatercatalog.manage_catalogs.labelActions}</th>
+            </tr>
+            <#list catalogs_list as catalog>
+            <tr>
+                <td>${catalog.name}</td>
+                <td>${catalog.description}</td>
+                <td>${catalog.locale}</td>
+                <td>${catalog.outputFilename}</td>
+                <td>${catalog.urlRepository}</td>
+                <td>
+                    <a href="jsp/admin/plugins/updatercatalog/EditCatalog.jsp?id_catalog=${catalog.id}">
+                        <img src="images/admin/skin/plugins/updatercatalog/actions/edit.png" alt="#i18n{updatercatalog.manage_catalogs.actionEdit}" title="#i18n{updatercatalog.manage_catalogs.actionEdit}" />
+                    </a>
+                    <a href="jsp/admin/plugins/updatercatalog/DoGenerateCatalog.jsp?id_catalog=${catalog.id}">
+                        <img src="images/admin/skin/plugins/updatercatalog/actions/generate.png" alt="#i18n{updatercatalog.manage_catalogs.actionGenerate}" title="#i18n{updatercatalog.manage_catalogs.actionGenerate}" />
+                    </a>
+                    <a href="${catalog.outputFilename}">
+                        <img src="images/admin/skin/plugins/updatercatalog/actions/view.png" alt="#i18n{updatercatalog.manage_catalogs.actionView}" title="#i18n{updatercatalog.manage_catalogs.actionView}" />
+                    </a>
+                    <a href="${catalog.urlRepository}/${catalog.outputFilename}" target="_blank">
+                        <img src="images/admin/skin/plugins/updatercatalog/actions/published.png" alt="#i18n{updatercatalog.manage_catalogs.actionViewOnLine}" title="#i18n{updatercatalog.manage_catalogs.actionViewOnLine}" />
+                    </a>
+                    <a href="jsp/admin/plugins/updatercatalog/DeleteCatalog.jsp?id_catalog=${catalog.id}">
+                        <img src="images/admin/skin/actions/delete.png" alt="#i18n{updatercatalog.manage_catalogs.actionDelete}" title="#i18n{updatercatalog.manage_catalogs.actionDelete}" />
+                    </a>
+                </td>
+            </tr>
+            </#list>
+        </table>
+        <form action="jsp/admin/plugins/updatercatalog/CreateCatalog.jsp">
+            <p>
+                <input value="#i18n{updatercatalog.manage_catalogs.buttonCreate}" class="button" type="submit" />
+            </p>
+        </form>
+    </div>
+</div>

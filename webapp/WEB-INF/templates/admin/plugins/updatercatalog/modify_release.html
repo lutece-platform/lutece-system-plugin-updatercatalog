@@ -1,0 +1,74 @@
+<div class="content-box">
+    <h2>#i18n{updatercatalog.modify_release.title}</h2>
+    <form action="jsp/admin/plugins/updatercatalog/DoModifyPluginRelease.jsp" method="POST">
+        <input type="hidden" name="id_release" value="${release.id}" />
+        <p>
+            <label for="name">#i18n{updatercatalog.modify_release.labelPlugin}* :</label>
+            <input name="name" id="name" tabindex="1" value="${release.pluginName}"  size="20" maxlength="100" type="text">
+        </p>
+        <p>
+            <label for="version">#i18n{updatercatalog.modify_release.labelVersion}* :</label>
+            <input name="version" id="version" tabindex="2" value="${release.pluginVersion}" size="20" type="text" maxlength="255" />
+
+        </p>
+        <p>
+            <label for="url_download">#i18n{updatercatalog.modify_release.labelPackage}* :</label>
+            <input name="url_download" id="url_download" tabindex="3" value="${release.urlDownload}" size="60" type="text" maxlength="255" />
+
+        </p>
+        <p>
+            <label for="core_version_min">#i18n{updatercatalog.modify_release.labelMinCoreVersion}* :</label>
+            <input name="core_version_min" id="core_version_min" tabindex="4" value="${release.coreVersionMin}" size="20" type="text"  maxlength="255" />
+
+        </p>
+        <p>
+            <label for="core_version_max">#i18n{updatercatalog.modify_release.labelMaxCoreVersion} :</label>
+            <#if release.coreVersionMax??>
+                <input name="core_version_max" id="core_version_max" tabindex="5" value="${release.coreVersionMax}" size="20" type="text"  maxlength="255" />
+            <#else>
+                <input name="core_version_max" id="core_version_max" tabindex="5" value="" size="20" type="text"  maxlength="255" />
+            </#if>
+        </p>
+        <p>
+            <input value="#i18n{updatercatalog.modify_release.buttonModify}" class="button" type="submit" />
+		    <input class="button" onclick="javascript:history.go(-1)" value="#i18n{portal.util.labelCancel}" type="button">
+        </p>
+    </form>
+
+</div>
+
+
+<div class="content-box">
+    <h2>#i18n{updatercatalog.modify_release.titleUpgradesList}</h2>
+
+        <table>
+            <tr>
+                <th>#i18n{updatercatalog.modify_release.labelVersionFrom} </th>
+                <th>#i18n{updatercatalog.modify_release.labelCritical}</th>
+                <th>#i18n{updatercatalog.modify_release.labelPackage}</th>
+                <th>#i18n{updatercatalog.modify_release.labelActions}</th>
+            </tr>
+            <#list release.upgrades as upgrade>
+            <tr>
+                <td>${upgrade.versionFrom}</td>
+                <td>
+                    <img src="images/admin/skin/plugins/updatercatalog/upgrade${upgrade.critical}.png" align="middle"/>
+                    #i18n{updatercatalog.label.upgradeLevel${upgrade.critical}}
+                </td>
+                <td>${upgrade.urlDownload}</td>
+                <td>
+                    <a href="jsp/admin/plugins/updatercatalog/DeleteUpgrade.jsp?id_release=${release.id}&amp;version=${upgrade.versionFrom}">
+                        <img src="images/admin/skin/actions/delete.png" alt="#i18n{updatercatalog.modify_release.actionDelete}" title="#i18n{updatercatalog.modify_release.actionDelete}" />
+                    </a>
+                </td>
+            </tr>
+            </#list>
+        </table>
+        <form action="jsp/admin/plugins/updatercatalog/CreateUpgrade.jsp">
+            <p>
+                <input type="hidden" name="id_release" value="${release.id}"/>
+                <input value="#i18n{updatercatalog.modify_release.buttonCreateUpgrade}" class="button" type="submit" />
+            </p>
+        </form>
+
+</div>

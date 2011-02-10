@@ -1,0 +1,96 @@
+<div class="content-box">
+    <h2>#i18n{updatercatalog.modify_catalog.title}</h2>
+    <form action="jsp/admin/plugins/updatercatalog/DoModifyCatalog.jsp">
+        <input type="hidden" name="id_catalog" value="${catalog.id}">
+        <p>
+            <label for="name">#i18n{updatercatalog.modify_catalog.labelName}* :</label>
+            <input name="name" id="name" tabindex="1" value="${catalog.name}" maxlength="100" type="text">
+        </p>
+        <p>
+            <label for="description">#i18n{updatercatalog.modify_catalog.labelDescription}* :</label>
+            <input name="description" id="description" tabindex="3" value="${catalog.description}" size="60" type="text" maxlength="255" />
+            
+        </p>
+        <p>
+            <label for="locale">#i18n{updatercatalog.modify_catalog.labelLocale}* :</label>
+            <input name="locale" id="locale" tabindex="3" value="${catalog.locale}" size="2" type="text" maxlength="2" />
+            
+        </p>
+        <p>
+            <label for="output_filename">#i18n{updatercatalog.modify_catalog.labelOutputFilename}* :</label>
+            <input name="output_filename" id="output_filename" tabindex="3" value="${catalog.outputFilename}" size="60" type="text"  maxlength="255" />
+            
+        </p>
+        <p>
+            <label for="url_repository">#i18n{updatercatalog.modify_catalog.labelUrlRepository}* :</label>
+            <input name="url_repository" id="url_repository" tabindex="3" value="${catalog.urlRepository}" size="60" type="text"  maxlength="255" />
+            
+        </p>
+        <p>
+            <input value="#i18n{updatercatalog.modify_catalog.buttonModify}" class="button" type="submit" />
+        </p>
+    </form>
+    
+</div>
+<div class="content-box">
+    <h2>#i18n{updatercatalog.modify_catalog.titleCatalogContent}</h2>
+    <table>
+        <tr>
+            <th>#i18n{updatercatalog.modify_catalog.labelPluginName}</th>
+            <th>#i18n{updatercatalog.modify_catalog.labelPluginDescription}</th>
+            <th>#i18n{updatercatalog.modify_catalog.labelPluginAuthor}</th>
+            <th>#i18n{updatercatalog.modify_catalog.labelPluginVersion}</th>
+            <th>#i18n{updatercatalog.modify_catalog.labelPluginHomepage} </th>
+            <th>#i18n{updatercatalog.modify_catalog.labelPluginDownload}</th>
+            <th>#i18n{updatercatalog.modify_catalog.labelActions}</th>
+        </tr>
+        <#list plugins_list as plugin>
+        <tr>
+            <td>${plugin.pluginName}</td>
+            <td>${plugin.pluginDescription}</td>
+            <td>${plugin.pluginAuthor}</td>
+            <td>${plugin.pluginVersion}</td>
+            <td>
+                <a href="${plugin.urlHomepage}" target="_blank">
+                    ${plugin.urlHomepage}
+                </a>
+            </td>
+            <td>${plugin.urlDownload}</td>
+            <td>
+                <a href="jsp/admin/plugins/updatercatalog/DoCatalogRemoveRelease.jsp?id_catalog=${catalog.id}&id_release=${plugin.releaseId}">
+                    <img src="images/admin/skin/actions/delete.png" alt="#i18n{updatercatalog.modify_catalog.actionDelete}" title="#i18n{updatercatalog.modify_catalog.actionDelete}" />
+                </a>
+            </td>
+        </tr>
+        </#list>
+    </table> 
+    
+    <h2>#i18n{updatercatalog.modify_catalog.titleOtherPlugins}</h2>
+    <div class="highlight-box">
+        <form action="jsp/admin/plugins/updatercatalog/DoCatalogAddRelease.jsp">
+            <input type="hidden" name="id_catalog" value="${catalog.id}">
+            <table>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>#i18n{updatercatalog.modify_catalog.labelPluginName}</th>
+                    <th>#i18n{updatercatalog.modify_catalog.labelPluginDescription}</th>
+                    <th>#i18n{updatercatalog.modify_catalog.labelPluginAuthor}</th>
+                    <th>#i18n{updatercatalog.modify_catalog.labelPluginVersion}</th>
+                </tr>
+                <#list available_plugins_list as plugin>
+                <tr>
+                    <td><input type="checkbox" name="id_release" value="${plugin.releaseId}"></td>
+                    <td>${plugin.pluginName}</td>
+                    <td>${plugin.pluginDescription}</td>
+                    <td>${plugin.pluginAuthor}</td>
+                    <td>${plugin.pluginVersion}</td>
+                </tr>
+                </#list>
+            </table> 
+            <p>
+                <input value="#i18n{updatercatalog.modify_catalog.buttonAddSelected}" class="button" type="submit" />
+            </p>
+            
+        </form>
+    </div>
+</div>

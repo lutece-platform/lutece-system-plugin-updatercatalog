@@ -1,0 +1,35 @@
+
+<div class="content-box">
+    <h2>#i18n{updatercatalog.create_release.title}</h2>
+    <form action="jsp/admin/plugins/updatercatalog/DoCreatePluginRelease.jsp" method="POST">
+        <p>
+            <label for="name">#i18n{updatercatalog.create_release.labelPlugin}* :</label>
+            <@combo name="name" default_value="${plugin}" items=plugins_list />
+        </p>
+        <p>
+            <label for="version">#i18n{updatercatalog.create_release.labelVersion}* :</label>
+            <input name="version" id="version" tabindex="2" value="" size="20" type="text" maxlength="255" />
+            
+        </p>
+        <p>
+            <label for="url_download">#i18n{updatercatalog.create_release.labelPackage}* :</label>
+            <input name="url_download" id="url_download" tabindex="3" value="" size="60" type="text" maxlength="255" />
+            
+        </p>
+        <p>
+            <label for="core_version_min">#i18n{updatercatalog.create_release.labelMinCoreVersion}* :</label>
+            <input name="core_version_min" id="core_version_min" tabindex="4" value="" size="20" type="text"  maxlength="255" />
+            
+        </p>
+        <p>
+            <label for="core_version_max">#i18n{updatercatalog.create_release.labelMaxCoreVersion} :</label>
+            <input name="core_version_max" id="core_version_max" tabindex="5" value="" size="20" type="text"  maxlength="255" />
+            
+        </p>
+        <p>
+            <input value="#i18n{updatercatalog.create_release.buttonCreate}" class="button" type="submit" />
+		    <input class="button" onclick="javascript:history.go(-1)" value="#i18n{portal.util.labelCancel}" type="button">
+        </p>
+    </form>
+    
+</div>
