@@ -39,6 +39,7 @@ import fr.paris.lutece.plugins.updatercatalog.business.CatalogPluginEntry;
 import fr.paris.lutece.plugins.updatercatalog.business.ReleaseUpgrade;
 import fr.paris.lutece.portal.service.util.AppLogService;
 import fr.paris.lutece.portal.service.util.AppPathService;
+import fr.paris.lutece.portal.service.util.AppPropertiesService;
 import fr.paris.lutece.util.xml.XmlUtil;
 
 import org.apache.commons.io.FileUtils;
@@ -71,6 +72,7 @@ public final class CatalogGenerationService
     private static final String TAG_VERSION_FROM = "version-from";
     private static final String TAG_CRITICAL = "critical";
     private static final String TAG_URL_UPGRADE_DOWNLOAD = "url-upgrade-download";
+    private static final String PROPERTY_GENERATED_CATALOGS_DIRECTORY_PATH = "updatercatalog.generated_catalogs.directory.path";
 
     /**
      * Private constructor
@@ -88,7 +90,8 @@ public final class CatalogGenerationService
         try
         {
             Catalog catalog = CatalogHome.findByPrimaryKey( nCatalogId );
-            File file = new File( AppPathService.getWebAppPath(  ) + "/" + catalog.getOutputFilename(  ) );
+            File file = new File( AppPathService.getWebAppPath(  ) + AppPropertiesService.getProperty( 
+            		PROPERTY_GENERATED_CATALOGS_DIRECTORY_PATH ) + catalog.getOutputFilename(  ) );
             FileUtils.writeStringToFile( file, generateCatalogXmlDocument( catalog ) );
         }
         catch ( IOException e )
