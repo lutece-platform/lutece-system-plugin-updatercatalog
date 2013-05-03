@@ -14,8 +14,13 @@
    <provider>updatercatalog.plugin.provider</provider>
    <provider-url>http://lutece.paris.fr</provider-url>
    <icon-url>images/admin/skin/plugins/updatercatalog/updatercatalog.png</icon-url>
-   <copyright>Copyright (c) 2001-2008 Mairie de Paris</copyright>
+   <copyright>Copyright (c) 2001-2013 Mairie de Paris</copyright>
    <db-pool-required>1</db-pool-required>
+    <core-version-dependency>
+        <min-core-version>4.0.0</min-core-version>
+        <max-core-version/>
+    </core-version-dependency>
+   
 
    <!-- Administration interface parameters -->
    <admin-features>
