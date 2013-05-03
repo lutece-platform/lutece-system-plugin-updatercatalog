@@ -1,35 +1,58 @@
+<#include "tabs.html" /> 
+<@tabs tab="releases" />
 
-<div class="content-box">
-    <h2>#i18n{updatercatalog.create_release.title}</h2>
-    <form action="jsp/admin/plugins/updatercatalog/DoCreatePluginRelease.jsp" method="POST">
-        <p>
-            <label for="name">#i18n{updatercatalog.create_release.labelPlugin}* :</label>
-            <@combo name="name" default_value="${plugin}" items=plugins_list />
-        </p>
-        <p>
-            <label for="version">#i18n{updatercatalog.create_release.labelVersion}* :</label>
-            <input name="version" id="version" tabindex="2" value="" size="20" type="text" maxlength="255" />
-            
-        </p>
-        <p>
-            <label for="url_download">#i18n{updatercatalog.create_release.labelPackage}* :</label>
-            <input name="url_download" id="url_download" tabindex="3" value="" size="60" type="text" maxlength="255" />
-            
-        </p>
-        <p>
-            <label for="core_version_min">#i18n{updatercatalog.create_release.labelMinCoreVersion}* :</label>
-            <input name="core_version_min" id="core_version_min" tabindex="4" value="" size="20" type="text"  maxlength="255" />
-            
-        </p>
-        <p>
-            <label for="core_version_max">#i18n{updatercatalog.create_release.labelMaxCoreVersion} :</label>
-            <input name="core_version_max" id="core_version_max" tabindex="5" value="" size="20" type="text"  maxlength="255" />
-            
-        </p>
-        <p>
-            <input value="#i18n{updatercatalog.create_release.buttonCreate}" class="button" type="submit" />
-		    <input class="button" onclick="javascript:history.go(-1)" value="#i18n{portal.util.labelCancel}" type="button">
-        </p>
+<div class="row-fluid">
+    <form class="form-horizontal" action="jsp/admin/plugins/updatercatalog/DoCreatePluginRelease.jsp" method="POST">
+        <fieldset>
+            <legend>#i18n{updatercatalog.create_release.title}</legend>
+
+            <div class="control-group">
+                <label class="control-label" for="name">#i18n{updatercatalog.create_release.labelPlugin}* :</label>
+                <div class="controls">
+                    <@combo name="name" default_value="${plugin}" items=plugins_list />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="version">#i18n{updatercatalog.create_release.labelVersion}* :</label>
+                <div class="controls">
+                    <input name="version" class="input-mini" id="version" tabindex="2" value="" size="20" type="text" maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="url_download">#i18n{updatercatalog.create_release.labelPackage}* :</label>
+                <div class="controls">
+                    <input name="url_download" id="url_download" tabindex="3" value="" size="60" type="text" maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="core_version_min">#i18n{updatercatalog.create_release.labelMinCoreVersion}* :</label>
+                <div class="controls">
+                    <input name="core_version_min" class="input-mini" id="core_version_min" tabindex="4" value="" size="20" type="text"  maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="core_version_max">#i18n{updatercatalog.create_release.labelMaxCoreVersion} :</label>
+                <div class="controls">
+                    <input name="core_version_max" class="input-mini" id="core_version_max" tabindex="5" value="" size="20" type="text"  maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+
+            <div class="form-actions">
+                <button class="btn btn-primary btn-small" type="submit" >#i18n{updatercatalog.create_release.buttonCreate}</button>
+                <button class="btn btn-small" onclick="javascript:history.go(-1)" type="button" >#i18n{portal.util.labelCancel}</button>
+            </div>
+
+        </fieldset>
     </form>
-    
+
 </div>

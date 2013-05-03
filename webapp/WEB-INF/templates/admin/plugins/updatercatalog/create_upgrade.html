@@ -1,33 +1,55 @@
-<div class="content-box">
-    <h2>#i18n{updatercatalog.create_upgrade.title}</h2>
-    <form action="jsp/admin/plugins/updatercatalog/DoCreateUpgrade.jsp" method="POST">
-        <input type="hidden" name="id_release" value="${release_id}" />
-        <p>
-            <label for="version">#i18n{updatercatalog.create_upgrade.labelVersionFrom}* :</label>
-            <input name="version" id="version" tabindex="2" value="" size="20" type="text" maxlength="255" />
+<#include "tabs.html" /> 
+<@tabs tab="releases" />
 
-        </p>
-        <p>
-            <label for="critical">#i18n{updatercatalog.create_upgrade.labelCritical}* :</label>
-            <input name="critical" id="critical" tabindex="2" value="0" type="radio" checked >
-                <img src="images/admin/skin/plugins/updatercatalog/upgrade0.png"  />
-                #i18n{updatercatalog.label.upgradeLevel0}
-            </input>
-            <input name="critical" id="critical" tabindex="3" value="1" type="radio" >
-                <img src="images/admin/skin/plugins/updatercatalog/upgrade1.png" />
-                #i18n{updatercatalog.label.upgradeLevel1}
-            </input>
 
-        </p>
-        <p>
-            <label for="url_download">#i18n{updatercatalog.create_upgrade.labelPackage}* :</label>
-            <input name="url_download" id="url_download" tabindex="4" value="" size="60" type="text" maxlength="255" />
+<div class="row-fluid">
+    <form class="form-horizontal" action="jsp/admin/plugins/updatercatalog/DoCreateUpgrade.jsp" method="POST">
+        <fieldset>
+            <legend>#i18n{updatercatalog.create_upgrade.title}</legend>
+            <input type="hidden" name="id_release" value="${release_id}" />
 
-        </p>
-        <p>
-            <input value="#i18n{updatercatalog.create_upgrade.buttonCreate}" class="button" type="submit" />
-		    <input class="button" onclick="javascript:history.go(-1)" value="#i18n{portal.util.labelCancel}" type="button">
-        </p>
+            <div class="control-group">
+                <label class="control-label" for="version">#i18n{updatercatalog.create_upgrade.labelVersionFrom}* :</label>
+                <div class="controls">
+                    <input name="version" class="input-mini" id="version" tabindex="2" value="" size="20" type="text" maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+
+
+            <div class="control-group">
+                <label class="control-label" for="critical">#i18n{updatercatalog.create_upgrade.labelCritical}* :</label>
+                <div class="controls">
+                    <input name="critical" id="critical" tabindex="2" value="0" type="radio" checked  />
+                    <img src="images/admin/skin/plugins/updatercatalog/upgrade0.png"  />
+                    #i18n{updatercatalog.label.upgradeLevel0}
+                    <span class="help-block"></span>
+                </div>
+
+                <div class="controls">
+                    <input name="critical" id="critical" tabindex="3" value="1" type="radio"  />
+                    <img src="images/admin/skin/plugins/updatercatalog/upgrade1.png" />
+                    #i18n{updatercatalog.label.upgradeLevel1}
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="url_download">#i18n{updatercatalog.create_upgrade.labelPackage}* :</label>
+                <div class="controls">
+                    <input name="url_download" id="url_download" tabindex="4" value="" size="60" type="text" maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+
+            <div class="form-actions">
+                <button class="btn btn-primary btn-small" type="submit" >#i18n{updatercatalog.create_upgrade.buttonCreate}</button>
+                <button class="btn btn-small" onclick="javascript:history.go(-1)" type="button">#i18n{portal.util.labelCancel}</button>
+            </div>
+
+        </fieldset>
     </form>
 
 </div>

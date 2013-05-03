@@ -1,34 +1,57 @@
-<div class="content-box">
-    <h2>#i18n{updatercatalog.create_plugin.title}</h2>
-    <form action="jsp/admin/plugins/updatercatalog/DoCreatePlugin.jsp" method="POST">
-        <p>
-            <label for="name">#i18n{updatercatalog.create_plugin.labelName}* :</label>
-            <input name="name" id="name" tabindex="1" value=""  size="30" maxlength="100" type="text">
-        </p>
-        <p>
-            <label for="locale">#i18n{updatercatalog.create_plugin.labelLocale}* :</label>
-            <input name="locale" id="locale" tabindex="2" value="" size="2" type="text" maxlength="2" />
+<#include "tabs.html" /> 
+<@tabs tab="plugins" />
 
-        </p>
-        <p>
-            <label for="description">#i18n{updatercatalog.create_plugin.labelDescription}* :</label>
-            <input name="description" id="description" tabindex="3" value="" size="60" type="text" maxlength="255" />
+<div class="row-fluid">
+    <form class="form-horizontal" action="jsp/admin/plugins/updatercatalog/DoCreatePlugin.jsp" method="POST">
+        <fieldset>
+            <legend>#i18n{updatercatalog.create_plugin.title}</legend>
 
-        </p>
-        <p>
-            <label for="author">#i18n{updatercatalog.create_plugin.labelAuthor}* :</label>
-            <input name="author" id="author" tabindex="4" value="" size="30" type="text"  maxlength="100" />
+            <div class="control-group">
+                <label class="control-label" for="name">#i18n{updatercatalog.create_plugin.labelName}* :</label>
+                <div class="controls">
+                    <input name="name" id="name" tabindex="1" value="" maxlength="100" type="text" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
 
-        </p>
-        <p>
-            <label for="url_homepage">#i18n{updatercatalog.create_plugin.labelHomepage}* :</label>
-            <input name="url_homepage" id="url_homepage" tabindex="5" value="" size="60" type="text"  maxlength="255" />
+            <div class="control-group">
+                <label class="control-label" for="locale">#i18n{updatercatalog.create_plugin.labelLocale}* :</label>
+                <div class="controls">
+                    <input name="locale" class="input-mini" id="locale" tabindex="2" value=""type="text" maxlength="2" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
 
-        </p>
-        <p>
-            <input value="#i18n{updatercatalog.create_plugin.buttonCreate}" class="button" type="submit" />
-		    <input class="button" onclick="javascript:history.go(-1)" value="#i18n{portal.util.labelCancel}" type="button">
-        </p>
+            <div class="control-group">
+                <label class="control-label" for="description">#i18n{updatercatalog.create_plugin.labelDescription}* :</label>
+                <div class="controls">
+                    <input name="description" class="input-xxlarge" id="description" tabindex="3" value="" type="text" maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="author">#i18n{updatercatalog.create_plugin.labelAuthor}* :</label>
+                <div class="controls">
+                    <input name="author" id="author" tabindex="4" value="" type="text"  maxlength="100" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="url_homepage">#i18n{updatercatalog.create_plugin.labelHomepage}* :</label>
+                <div class="controls">
+                    <input name="url_homepage" class="input-xxlarge" id="url_homepage" tabindex="5" value="" type="text"  maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="form-actions">  
+                <button class="btn btn-primary btn-small" type="submit" >#i18n{updatercatalog.create_plugin.buttonCreate}</button>
+                <button class="btn btn-small" onclick="javascript:history.go(-1)" type="button" >#i18n{portal.util.labelCancel}</button>
+            </div>
+
+        </fieldset>
     </form>
 
 </div>

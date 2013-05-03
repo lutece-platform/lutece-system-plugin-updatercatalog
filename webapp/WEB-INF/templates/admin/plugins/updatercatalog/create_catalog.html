@@ -1,33 +1,57 @@
-<div class="content-box">
-    <h2>#i18n{updatercatalog.create_catalog.title}</h2>
-    <form action="jsp/admin/plugins/updatercatalog/DoCreateCatalog.jsp" method="POST">
-        <p>
-            <label for="name">#i18n{updatercatalog.create_catalog.labelName}* :</label>
-            <input name="name" id="name" tabindex="1" value="" maxlength="100" type="text">
-        </p>
-        <p>
-            <label for="description">#i18n{updatercatalog.create_catalog.labelDescription}* :</label>
-            <input name="description" id="description" tabindex="2" value="" size="60" type="text" maxlength="255" />
-            
-        </p>
-        <p>
-            <label for="locale">#i18n{updatercatalog.create_catalog.labelLocale}* :</label>
-            <input name="locale" id="locale" tabindex="3" value="" size="2" type="text" maxlength="2" />
-            
-        </p>
-        <p>
-            <label for="output_filename">#i18n{updatercatalog.create_catalog.labelOutputFilename}* :</label>
-            <input name="output_filename" id="output_filename" tabindex="4" value="" size="60" type="text"  maxlength="255" />
-            
-        </p>
-        <p>
-            <label for="url_repository">#i18n{updatercatalog.create_catalog.labelUrlRepository}* :</label>
-            <input name="url_repository" id="url_repository" tabindex="5" value="" size="60" type="text"  maxlength="255" />
-            
-        </p>
-        <p>
-            <input value="#i18n{updatercatalog.create_catalog.buttonCreate}" class="button" type="submit" />
-        </p>
+<#include "tabs.html" /> 
+<@tabs tab="catalogs" />
+
+<div class="row-fluid">
+    <form class="form-horizontal" action="jsp/admin/plugins/updatercatalog/DoCreateCatalog.jsp" method="POST">
+        <fieldset>
+            <legend>#i18n{updatercatalog.create_catalog.title}</legend>
+
+            <div class="control-group">
+                <label class="control-label" for="name">#i18n{updatercatalog.create_catalog.labelName}* :</label>
+                <div class="controls">
+                    <input name="name" class="input-medium" id="name" tabindex="1" value="" maxlength="100" type="text" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="description">#i18n{updatercatalog.create_catalog.labelDescription}* :</label>
+                <div class="controls">
+                    <input name="description" class="input-xxlarge" id="description" tabindex="2" value="" size="60" type="text" maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="locale">#i18n{updatercatalog.create_catalog.labelLocale}* :</label>
+                <div class="controls">
+                    <input name="locale" class="input-mini" id="locale" tabindex="3" value=""type="text" maxlength="2" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="output_filename">#i18n{updatercatalog.create_catalog.labelOutputFilename}* :</label>
+                <div class="controls">
+                    <input name="output_filename" class="input-xxlarge" id="output_filename" tabindex="4" value="" type="text"  maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="url_repository">#i18n{updatercatalog.create_catalog.labelUrlRepository}* :</label>
+                <div class="controls">
+                    <input name="url_repository" class="input-xxlarge" id="url_repository" tabindex="5" value="" type="text"  maxlength="255" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn btn-primary btn-small" type="submit" >#i18n{updatercatalog.create_catalog.buttonCreate}</button>
+                <button class="btn btn-small" onclick="javascript:history.go(-1)" type="button" >#i18n{portal.util.labelCancel}</button>
+            </div>
+
+        </fieldset>
     </form>
-    
+
 </div>

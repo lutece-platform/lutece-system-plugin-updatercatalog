@@ -1,56 +1,46 @@
-<div id="left">
-    <div class="content-box">
-        <ul>
-            <li>
-                <img src="images/admin/skin/plugins/updatercatalog/catalog.png" />
-                <a href="jsp/admin/plugins/updatercatalog/ManageCatalogs.jsp">#i18n{updatercatalog.pageTitle.manageCatalogs}</a>
-            </li>
-            <li>
-                <img src="images/admin/skin/plugins/updatercatalog/plugin.png" />
-                <strong>#i18n{updatercatalog.pageTitle.managePlugins}</strong>
-            </li>
-            <li>
-                <img src="images/admin/skin/plugins/updatercatalog/release.png" />
-                <a href="jsp/admin/plugins/updatercatalog/ManagePluginsReleases.jsp">#i18n{updatercatalog.pageTitle.manageReleases}</a>
-            </li>
-        </ul>
-    </div>
-</div>
+<#include "tabs.html" /> 
+<@tabs tab="plugins" />
 
-<div id="right">
-    <div class="content-box">
-        <table>
-            <tr>
-                <th>#i18n{updatercatalog.manage_plugins.labelName}</th>
-                <th>#i18n{updatercatalog.manage_plugins.labelLocale}</th>
-                <th>#i18n{updatercatalog.manage_plugins.labelDescription}</th>
-                <th>#i18n{updatercatalog.manage_plugins.labelAuthor}</th>
-                <th>#i18n{updatercatalog.manage_plugins.labelHomepage}</th>
-                <th>#i18n{updatercatalog.manage_plugins.labelActions}</th>
-            </tr>
-            <#list plugins_list as plugin>
-            <tr>
-                <td>${plugin.pluginName}</td>
-                <td>${plugin.pluginLocale}</td>
-                <td>${plugin.pluginDescription}</td>
-                <td>${plugin.pluginAuthor}</td>
-                <td>${plugin.urlHomepage}</td>
-                <td>
-                    <a href="jsp/admin/plugins/updatercatalog/ModifyPlugin.jsp?name=${plugin.pluginName}&amp;locale=${plugin.pluginLocale}" >
-                        <img src="images/admin/skin/plugins/updatercatalog/actions/edit.png" alt="#i18n{updatercatalog.manage_plugins.actionModify}" title="#i18n{updatercatalog.manage_plugins.actionModify}" />
-                    </a>
-                    <a href="jsp/admin/plugins/updatercatalog/DeletePlugin.jsp?name=${plugin.pluginName}&amp;locale=${plugin.pluginLocale}">
-                        <img src="images/admin/skin/actions/delete.png" alt="#i18n{updatercatalog.manage_plugins.actionDelete}" title="#i18n{updatercatalog.manage_plugins.actionDelete}" />
-                    </a>
-                </td>
-            </tr>
-            </#list>
-        </table>
-        <form action="jsp/admin/plugins/updatercatalog/CreatePlugin.jsp">
-            <p>
-                <input value="#i18n{updatercatalog.manage_plugins.buttonCreate}" class="button" type="submit" />
-            </p>
+<div class="row-fluid">
+
+    <div class="btn-group pull-right">
+        <form class="form-horizontal" action="jsp/admin/plugins/updatercatalog/CreatePlugin.jsp">
+
+            <button class="btn btn-primary btn-small" type="submit" >
+                <i class="icon-plus icon-white"></i>
+                <span class="hidden-phone">#i18n{updatercatalog.manage_plugins.buttonCreate}</span>
+            </button>
         </form>
-
     </div>
+
+    <table class="table table-striped table-condensed">
+        <tr>
+            <th>#i18n{updatercatalog.manage_plugins.labelName}</th>
+            <th>#i18n{updatercatalog.manage_plugins.labelLocale}</th>
+            <th class="hidden-phone">#i18n{updatercatalog.manage_plugins.labelDescription}</th>
+            <th class="hidden-phone">#i18n{updatercatalog.manage_plugins.labelAuthor}</th>
+            <th class="hidden-phone">#i18n{updatercatalog.manage_plugins.labelHomepage}</th>
+            <th>#i18n{updatercatalog.manage_plugins.labelActions}</th>
+        </tr>
+        <#list plugins_list as plugin>
+        <tr>
+            <td>${plugin.pluginName}</td>
+            <td>${plugin.pluginLocale}</td>
+            <td class="hidden-phone">${plugin.pluginDescription}</td>
+            <td class="hidden-phone">${plugin.pluginAuthor}</td>
+            <td class="hidden-phone">${plugin.urlHomepage}</td>
+            <td>
+                <a class="btn btn-primary btn-small" href="jsp/admin/plugins/updatercatalog/ModifyPlugin.jsp?name=${plugin.pluginName}&amp;locale=${plugin.pluginLocale}"  title="#i18n{updatercatalog.manage_plugins.actionModify}" >
+                    <i class="icon-edit icon-white"></i>
+                </a>
+
+                <a class="btn btn-danger btn-small" href="jsp/admin/plugins/updatercatalog/DeletePlugin.jsp?name=${plugin.pluginName}&amp;locale=${plugin.pluginLocale}"  title="#i18n{updatercatalog.manage_plugins.actionDelete}" >
+                    <i class="icon-trash icon-white"></i>
+                </a>
+
+            </td>
+        </tr>
+        </#list>
+    </table>
+
 </div>
